@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth
+  namespace: dotnet-team
+  labels:
+    application: auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: auth
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 100%
+  template:
+    metadata:
+      labels:
+        application: auth
+    spec:
+      imagePullSecrets:
+        - name: docker-registry-key
+      containers:
+        - name: auth
+          image: docker-registry01.localhost/dotnet/remote/auth
+          imagePullPolicy: Always
+          ports:
+            - name: web
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+             - name: svc-keys
+               mountPath: "/app/Keys"
+               readOnly: true
+             - name: user-access
+               mountPath: "/app/UserAccess"
+               readOnly: true
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+          resources:
+            requests:              
+              #cpu: 1
+              memory: 150Mi
+            limits:
+              memory: 200Mi
+          startupProbe:
+            httpGet:
+              path: /v1/health
+              port: web
+            failureThreshold: 3
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /v1/health
+              port: web
+            periodSeconds: 10
+            timeoutSeconds: 1
+          livenessProbe:
+            httpGet:
+              path: /v1/health
+              port: web
+            periodSeconds: 60
+            timeoutSeconds: 1
+      volumes:
+        - name: svc-keys
+          secret:
+            secretName: svc-secrets
+            items:
+             - key: svc-auth-priv-key
+               path: priv-key.pem
+            defaultMode: 0755
+        - name: user-access
+          secret:
+            secretName: svc-auth-user-access
+            items:
+              - key: user-access.txt
+                path: user-access.txt
+            defaultMode: 0755
+      nodeSelector:
+        assignment: application
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth
+  namespace: dotnet-team
+  labels:
+    application: auth
+spec:
+  selector:
+    application: auth
+  type: ClusterIP
+  ports:
+    - name: web
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: istio
+  name: ingress-auth
+  namespace: dotnet-team
+  labels:
+    application: auth
+spec:
+  rules:
+    - host: auth.kub-lb2.localhost
+      http:
+        paths:
+          - backend:
+              serviceName: auth
+              servicePort: 8080

@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Keys\priv-key.pem" Condition=" '$(Configuration)' == 'Debug' ">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <Content Remove="appsettings.Development.json" />
+        <None Include="appsettings.Development.json" Condition=" '$(Configuration)' == 'Debug' ">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Include="nswag.json" />
+        <Content Remove="nswag.json" />
+        <None Update="UserAccess\user-access.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Bt.Web.Authentication.HttpDigest.AspNetCore\Bt.Web.Authentication.HttpDigest.AspNetCore.csproj" />
+      <ProjectReference Include="..\Bt.Web.Authentication.HttpDigest\Bt.Web.Authentication.HttpDigest.csproj" />
+    </ItemGroup>
+
+</Project>

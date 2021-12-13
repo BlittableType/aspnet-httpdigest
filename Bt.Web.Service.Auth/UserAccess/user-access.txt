@@ -1,0 +1,2 @@
+user:Bt.Web.Service.Auth:p@$$w0rd
+test:Bt.Web.Service.Auth:my$ecret

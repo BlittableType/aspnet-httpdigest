@@ -1,0 +1,46 @@
+﻿openapi: 3.0.0
+info:
+  title:  Authorization Service
+  description: >
+    Provides authorization to  services by
+    issuing JSON web tokens to clients.
+  version: 1.0.0
+servers:
+  - url: localhost:5000
+    description: Development server
+tags:
+  - name: JWT
+  - name: common
+paths:
+  /token/new:
+    get:
+      tags:
+        - JWT
+      summary: Issues new JSON web token.
+      operationId: newToken
+      security:
+        - BasicAuth: []
+      responses: 
+        '200':
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: string
+                format: jwt
+  /health:
+    get:
+      tags:
+        - common
+      summary: Checks if the server is running.
+      security: []   # No security
+      responses:
+        '200':
+          description: Server is up and running.
+        default:
+          description: Something is wrong.
+components:
+  securitySchemes: 
+    BasicAuth:
+      type: http
+      scheme: basic

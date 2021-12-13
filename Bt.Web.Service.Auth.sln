@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bt.Web.Authentication.HttpDigest", "Bt.Web.Authentication.HttpDigest\Bt.Web.Authentication.HttpDigest.csproj", "{ECF05485-99FE-496D-9F4C-BA4D5BC1CE84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bt.Web.Authentication.HttpDigest.AspNetCore", "Bt.Web.Authentication.HttpDigest.AspNetCore\Bt.Web.Authentication.HttpDigest.AspNetCore.csproj", "{F1904A6F-0FE6-4D0A-96F8-81BA2DE1B1E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bt.Web.Authentication.HttpDigest.Tests.Unit", "Bt.Web.Authentication.HttpDigest.Tests.Unit\Bt.Web.Authentication.HttpDigest.Tests.Unit.csproj", "{CC7A6709-D6B2-43A1-8F73-40DC308FEF2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bt.Web.Service.Auth", "Bt.Web.Service.Auth\Bt.Web.Service.Auth.csproj", "{1DF50969-C20F-40B0-89AD-1B6B30FB156E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bt.Web.Service.Auth.Tests.Unit", "Bt.Web.Service.Auth.Tests.Unit\Bt.Web.Service.Auth.Tests.Unit.csproj", "{2265376C-941E-4BD6-B70E-92A80BC808FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bt.Web.Common", "Bt.Web.Common\Bt.Web.Common.csproj", "{1525D232-E8DE-4FD5-830D-B334673FC9A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECF05485-99FE-496D-9F4C-BA4D5BC1CE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF05485-99FE-496D-9F4C-BA4D5BC1CE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF05485-99FE-496D-9F4C-BA4D5BC1CE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF05485-99FE-496D-9F4C-BA4D5BC1CE84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1904A6F-0FE6-4D0A-96F8-81BA2DE1B1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1904A6F-0FE6-4D0A-96F8-81BA2DE1B1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1904A6F-0FE6-4D0A-96F8-81BA2DE1B1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1904A6F-0FE6-4D0A-96F8-81BA2DE1B1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7A6709-D6B2-43A1-8F73-40DC308FEF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7A6709-D6B2-43A1-8F73-40DC308FEF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7A6709-D6B2-43A1-8F73-40DC308FEF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7A6709-D6B2-43A1-8F73-40DC308FEF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DF50969-C20F-40B0-89AD-1B6B30FB156E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF50969-C20F-40B0-89AD-1B6B30FB156E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF50969-C20F-40B0-89AD-1B6B30FB156E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF50969-C20F-40B0-89AD-1B6B30FB156E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2265376C-941E-4BD6-B70E-92A80BC808FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2265376C-941E-4BD6-B70E-92A80BC808FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2265376C-941E-4BD6-B70E-92A80BC808FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2265376C-941E-4BD6-B70E-92A80BC808FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1525D232-E8DE-4FD5-830D-B334673FC9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1525D232-E8DE-4FD5-830D-B334673FC9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1525D232-E8DE-4FD5-830D-B334673FC9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1525D232-E8DE-4FD5-830D-B334673FC9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
