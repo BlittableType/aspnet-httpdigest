@@ -63,16 +63,16 @@ namespace Bt.Web.Authentication.HttpDigest.Tests.Unit
                 // SHA256
                 yield return new TestCaseData(
                     HashingAlgorithm.Sha256, // hashingAlgorithm
-                    "eperso", // userName
+                    "user", // userName
                     "Bt.Web.Service.Auth", // realm
                     "p@$$w0rd", // password
-                    "3b90e6a96e3844288a88c4368c811e74", // nonce
+                    "c7ad95ede948e907", // nonce
                     HttpMethod.Get, // httpMethod
                     new Uri("/v1/token/new", UriKind.Relative), // uri
                     Qop.Auth, // qop
                     1U, // nonceCount
-                    "b3d2e59b", // cnonce
-                    "6bd93a0ff82b6cd0306ab3db5852ac0ac747cece579f97f5214a6652019b656e" // expectedResponse
+                    "28e063b5", // cnonce
+                    "0a6eb26d5a8607e495f0a71832003a3e9350a9a5f98c6e065b6c4b74bdcd2962" // expectedResponse
                 );
             }
         }
